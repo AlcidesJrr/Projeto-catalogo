@@ -29,15 +29,19 @@ app.get("/sobre", (req, res) => {
   res.render("sobre");
 });
 
-app.get("/membros", (req, res) => {
-  setTimeout(() => {
-    message = "";
-  }, 1000);
-
-  res.render("membros", {
-    message,
-  });
+app.get("/controle", (req, res) => {
+  res.render("controle");
 });
+
+// app.get("/membros", (req, res) => {
+//   setTimeout(() => {
+//     message = "";
+//   }, 1000);
+
+//   res.render("membros", {
+//     message,
+//   });
+// });
 
 app.post("/new", (req, res) => {
   const pokemon = req.body;

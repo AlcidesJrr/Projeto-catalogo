@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Book da Galera</title>
+    <title>BG | Controle de Acesso</title>
     <link rel="icon" type="image/png" href="./img/camera-fotografica.png"/>
 </head>
 
@@ -46,5 +46,26 @@
         </ul>
     </nav>
 
+    <form class="acesso" action="">
+        <div class="cardAc">
+            <div class="card-top">
+                <img class="imgCadeado" src="./img/cadeado.png" alt="Acesso restrito">
+                <h2>Painel de Controle</h2>
+                <p>Acesso para Membros</p>
+            </div>
+            <div class="card-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Digite seu email" required>
+            </div>
+            <div class="card-group">
+                <label>Senha</label>
+                <input type="password" name="senha" placeholder="Digite sua senha" required>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"> Lembre-me</label>
+            </div>
+            <button class="btnAcessar" type="submit">Acessar</button>
+        </div>
+    </form>
 </body>
 </html>

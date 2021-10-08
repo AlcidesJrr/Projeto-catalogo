@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Book da Galera</title>
+    <title>Book da Galera | Membros</title>
     <link rel="icon" type="image/png" href="./img/camera-fotografica.png"/>
 </head>
 
@@ -50,8 +50,17 @@
                     </div>
             
                     <div>
-                        <label for="tipo">Tipo: </label>
-                        <input type="text" name="tipo" id="tipo" placeholder="Digite o tipo de evento" required>
+                        <label for="evento">Evento: </label>
+                        <select name="evento">
+                            <option value="aniversarios">Aniversários</option>
+                            <option value="baladas">Baladas</option>
+                            <option value="casamentos">Casamentos</option>
+                            <option value="churrascos">Churrascos</option>
+                            <option value="festivais">Festivais</option>
+                            <option value="happy-hour">Happy your</option>
+                            <option value="malabares">Malabares</option>
+                            <option value="reveillons">Réveillons</option>
+                        </select>
                     </div>
             
                     <div>
@@ -73,7 +82,7 @@
                         <input type="text" name="data" id="data" placeholder="Digite a data" required>
                     </div>
             
-                    <button type="submit">Cadastrar</button>
+                    <button class="btnCadastrar" type="submit">Cadastrar</button>
                 </form>
            <section>
 </body>

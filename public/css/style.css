@@ -61,7 +61,7 @@ body {
 }
 
 .btn:hover {
-    background-color: rgba(233, 216, 216, 0.301);
+  background-color: rgba(233, 216, 216, 0.301);
 }
 
 .btn {
@@ -95,7 +95,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: absolute;
+  position: relative;
   width: 100%;
   box-shadow: 0 0 1rem #aa161636;
 }
@@ -187,7 +187,7 @@ section#cadastrar form div label {
 section#cadastrar form button {
   border: 0.1rem solid #ccc;;
   background-color: #fff;
-  color: rgb(104, 94, 91);
+  color: rgb(99, 104, 91);
   padding: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
@@ -201,9 +201,94 @@ section#cadastrar form button {
 }
   
 section#cadastrar form button:hover {
-  background-color: rgb(179, 173, 173);
-  color: #fff;
+  background-color: rgba(201, 189, 189, 0.493);
+  color: rgba(41, 35, 4, 0.863);
   transform: scale(1.1);
+  border-color: rgb(97, 89, 89);
+}
+
+select{
+  width: 104%;
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  outline: none;
+  border: 0.1rem solid #ccc;
+}
+
+.acesso {
+  color: rgb(48, 49, 49);
+  width: 400px;
+  margin: auto;
+  padding-top: 40px;
+}
+
+.cardAc {
+  padding: 3rem;
+  background-color: #fff;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 1rem #c9717136;
+}
+
+.card-top {
+  text-align: center;
+  padding: 1rem;
+}
+
+.imgCadeado {
+  width: 28%;
+}
+
+.card-group > label {
+  display: block;
+  color: rgb(12, 4, 4);
+}
+
+.card-group > input {
+  color: rgb(12, 4, 4);
+  outline: 0;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  outline: none;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.2rem;
+}
+
+.checkbox {
+  color: rgb(12, 4, 4);
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+
+.card-top h2 {
+  padding: 1rem;
+}
+
+.btnAcessar {
+  border: 0.1rem solid #ccc;;
+  background-image: linear-gradient(to right, rgb(207, 129, 39), rgb(218, 235, 66));
+  color: rgb(47, 49, 44);
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.3rem;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  width: 45%;
+  margin-top: 1rem;
+}
+
+.btnAcessar:hover {
+  background-image: linear-gradient(to right, rgb(218, 235, 66), rgb(207, 129, 39));
 }
 
 @media (min-width: 461px) and (max-width: 960px) {
