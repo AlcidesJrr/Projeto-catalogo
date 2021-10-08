@@ -37,7 +37,44 @@
             <p><%= message %></p> <span id="close">&times;</span>
         </section>
     <% }  %>
+    <section id="cadastrar">
+        <form action="/new" method="POST">
+                    <div>
+                        <label for="album">Álbum: </label>
+                        <input type="text" name="album" id="album" placeholder="Digite o nome do álbum" required>
+                    </div>
+        
+                    <div>
+                        <label for="nome">Nome: </label>
+                        <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
+                    </div>
+            
+                    <div>
+                        <label for="tipo">Tipo: </label>
+                        <input type="text" name="tipo" id="tipo" placeholder="Digite o tipo de evento" required>
+                    </div>
+            
+                    <div>
+                        <label for="imagem">Imagem: </label>
+                        <input type="text" name="imagem" id="imagem" placeholder="Digite o link da imagem" required>
+                    </div>
+        
+                    <div>
+                        <label for="descricao">Descrição: </label>
+                        <input type="text" name="descricao" id="descricao" placeholder="Digite a descrição" required>
+                    </div>
+                    <div>
+                        <label for="local">Local: </label>
+                        <input type="text" name="localidade" id="localidade" placeholder="Digite a localidade" required>
+                    </div>
 
-    <h1>Olá mundo do EJS!</h1>
+                    <div>
+                        <label for="data">Data: </label>
+                        <input type="text" name="data" id="data" placeholder="Digite a data" required>
+                    </div>
+            
+                    <button type="submit">Cadastrar</button>
+                </form>
+           <section>
 </body>
 </html>
