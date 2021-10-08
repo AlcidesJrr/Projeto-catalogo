@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto,Arial,sans-serif;
+}
+
+html,
+  body {
+    scroll-behavior: smooth;
+    height: 100vh;
+    width: 100%;
+  }
+
+body {
+    background: linear-gradient(
+      0deg,
+      rgb(241, 241, 239) 0%,
+      rgb(255, 255, 255) 100%
+    );
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+.sub-menu ul ul{
+    display: none;
+    position: absolute;
+    list-style: none;
+  }
+
+.sub-menu ul li:hover > ul {
+    display: block;
+  }
+
+.sub-menu ul ul li a:hover {
+    color: rgba(209, 83, 74, 0.658);
+  }
+
+.form-inline {
+    display: flex;
+    justify-content: right;
+    width: 40%;
+    padding: 0.6rem 2rem 0.6rem 2rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.3rem;
+    outline: none;
+    border: 0.1rem solid #ccc;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+.btn:hover {
+    background-color: rgba(233, 216, 216, 0.301);
+}
+
+.btn {
+    border: 0.1rem solid #ccc;;
+    background-color: #fff;
+    color: rgb(104, 94, 91);
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 0.3rem;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+    width: 10%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+nav {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    border-color: black;
+  }
+
+nav article {
+    display: flex;
+    align-items: center;
+  }
+  
+nav article img {
+    width: 3.5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+nav article h1 a {
+    color: rgb(81, 80, 95);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: 'Knewave', cursive;
+    }
+
+nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+nav ul li a {
+    font-family: 'Knewave', cursive;
+    text-decoration: none;
+    color: rgb(95, 75, 74);
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: 0.5s;
+    padding: 1rem;
+  }
+  
+nav ul li a:hover {
+    color: rgb(81, 80, 95);
+    color: rgb(202, 171, 68);
+}
+
+.ico-seta-menu {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgba(95, 75, 74, 0.466);
+}
+  
+section#cadastrar {
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+    margin: 0 20rem 0rem 20rem;
+    box-shadow: 0 0 1rem #00000060;
+    border-radius: 1rem;
+    width: 50%;
+  
+  }
+  
+  section#cadastrar form {
+    width: 100%;
+    padding: 0.6rem 2rem 0.6rem 2rem;
+  }
+  
+  section#cadastrar form div input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    outline: none;
+    border: 0.1rem solid #ccc;
+  }
+  
+  section#cadastrar form div label {
+    font-size: 1.2rem;
+    color: rgb(236, 80, 32);
+  }
+  
+  section#cadastrar form button {
+    border: 1px solid rgb(255, 68, 68);
+    background-color: #fff;
+    color: rgb(236, 80, 32);
+    padding: 0.6rem;
+    font-size: 1.3vw;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    display: block;
+    margin: auto;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+    width: 30%;
+  }
+  
+  section#cadastrar form button:hover {
+    background-color: rgb(179, 173, 173);
+    color: #fff;
+    transform: scale(1.1);
+  }
