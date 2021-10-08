@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Book da Galera</title>
+    <link rel="icon" type="image/png" href="./img/camera-fotografica.png"/>
+</head>
+
+<body>
+    <nav class="sub-menu">
+        <article>
+            <img src="./img/book-logo.gif" class="igm-bookdagalera" alt="Nome da logo">
+            <h1>
+                <a href="/">Book Da Galera</a>
+            </h1>
+        </article>
+        <ul>
+            <li>
+                <h1>
+                    <a>ÁREA ADMINISTRATIVA</a>
+                </h1>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="/">Home
+                </a>
+            </li> 
+        </ul>
+    </nav>
+
+    <% if(message != "") {  %>
+        <section id="message">
+            <p><%= message %></p> <span id="close">&times;</span>
+        </section>
+    <% }  %>
+
+    <h1>Olá mundo do EJS!</h1>
+</body>
+</html>
