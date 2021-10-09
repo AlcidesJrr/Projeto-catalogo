@@ -83,10 +83,7 @@ body {
 }
 
 header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8rem;
+  padding: 3rem;
   color: rgb(48, 49, 49);
 }
 
@@ -310,6 +307,25 @@ span#close {
   font-size: 0.8rem;
   cursor: pointer;
   transition: .3s;
+}
+
+.sobre {
+  color: rgb(48, 49, 49);
+  padding: 4rem;
+  background-color: #fff;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 1rem #c9717136;
+  line-height: 2;
+  width: 500px;
+  text-align: justify;
+}  
+
+.corpo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin:auto;
+  width: 960px;
 }
 
 @media (min-width: 461px) and (max-width: 960px) {
