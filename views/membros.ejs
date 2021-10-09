@@ -20,7 +20,7 @@
         <ul>
             <li>
                 <h1>
-                    <a>ÁREA ADMINISTRATIVA</a>
+                    <a>ADMINISTRATIVO</a>
                 </h1>
             </li>
         </ul>
@@ -32,11 +32,6 @@
         </ul>
     </nav>
 
-    <% if(message != "") {  %>
-        <section id="message">
-            <p><%= message %></p> <span id="close">&times;</span>
-        </section>
-    <% }  %>
     <section id="cadastrar">
         <form action="/new" method="POST">
                     <div>
@@ -52,6 +47,7 @@
                     <div>
                         <label for="evento">Evento: </label>
                         <select name="evento">
+                            <option value="nenhum">Escolha</option>
                             <option value="aniversarios">Aniversários</option>
                             <option value="baladas">Baladas</option>
                             <option value="casamentos">Casamentos</option>
@@ -79,11 +75,12 @@
 
                     <div>
                         <label for="data">Data: </label>
-                        <input type="text" name="data" id="data" placeholder="Digite a data" required>
+                        <input type="date" name="data" id="data" placeholder="Digite a data" required>
                     </div>
             
                     <button class="btnCadastrar" type="submit">Cadastrar</button>
                 </form>
            <section>
+        <script src="/js/script.js"></script>
 </body>
 </html>

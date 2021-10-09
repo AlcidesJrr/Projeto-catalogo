@@ -45,8 +45,14 @@
             </li>
         </ul>
     </nav>
+    
+        <% if(message != "") {  %>
+            <section id="message">
+                <%= message %> <span id="close">&times;</span>
+            </section>
+        <% }  %>
 
-    <form class="acesso" action="">
+    <form class="acesso" action="/controle" method="POST">
         <div class="cardAc">
             <div class="card-top">
                 <img class="imgCadeado" src="./img/cadeado.png" alt="Acesso restrito">
@@ -54,8 +60,8 @@
                 <p>Acesso para Membros</p>
             </div>
             <div class="card-group">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="Digite seu email" required>
+                <label>Login</label>
+                <input type="text" name="login" placeholder="Digite seu login" required>
             </div>
             <div class="card-group">
                 <label>Senha</label>
@@ -64,8 +70,13 @@
             <div class="checkbox">
                 <label><input type="checkbox"> Lembre-me</label>
             </div>
-            <button class="btnAcessar" type="submit">Acessar</button>
+            <div class="card-group">
+                <button class="btnAcessar" type="submit">Acessar</button>
+            </div>
         </div>
     </form>
+    
+    
+    <script src="/js/script.js"></script>
 </body>
 </html>

@@ -201,7 +201,7 @@ section#cadastrar form button {
 }
   
 section#cadastrar form button:hover {
-  background-color: rgba(201, 189, 189, 0.493);
+  background-color: rgba(223, 231, 104, 0.493);
   color: rgba(41, 35, 4, 0.863);
   transform: scale(1.1);
   border-color: rgb(97, 89, 89);
@@ -289,6 +289,27 @@ select{
 
 .btnAcessar:hover {
   background-image: linear-gradient(to right, rgb(218, 235, 66), rgb(207, 129, 39));
+}
+
+section#message {
+  position: absolute;
+  width: 15%;
+  text-align: center;
+  padding: 0.8rem;
+  background-color: rgba(231, 230, 125, 0.664);
+  color: #8a1826;
+  font-size: 0.8rem;
+  font-weight: 450;
+  border-radius: 0.3rem;
+  margin-left: 42%;
+  margin-top: 3.5%;
+  box-shadow: 0 0 1rem #c9717136;
+}
+
+span#close {
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: .3s;
 }
 
 @media (min-width: 461px) and (max-width: 960px) {
