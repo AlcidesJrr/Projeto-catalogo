@@ -87,6 +87,13 @@ header {
   color: rgb(48, 49, 49);
 }
 
+.titulo img {
+  width: 20rem;
+  height: 20rem;
+  margin-top: -80px;
+  margin-bottom: -90px;
+}
+
 nav {
   background-color: #fff;
   display: flex;
@@ -118,6 +125,7 @@ nav article h1 a {
 nav ul {
   list-style: none;
   display: flex;
+  
 }
   
 nav ul li a {
@@ -326,6 +334,59 @@ span#close {
   flex-direction: column;
   margin:auto;
   width: 960px;
+}
+
+a.card:hover {
+  transform: scale(1.1);
+}
+
+a.card img {
+  width: 15rem;
+  height: 15rem;
+}
+
+a.card h3 {
+  text-align: left;
+  padding: 1rem;
+  color: #000;
+  font-size: 0.8rem;
+}
+
+
+section#book {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+section.card{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-right: 0;
+  margin-left: 140px;
+}
+
+.titulo {
+  margin: auto;
+  text-align: center;
+}
+
+div.card img:hover {
+  transform: scale(1.1);
+}
+
+.card a {
+
+ margin: 1rem;
+}
+
+.card img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 3rem;
 }
 
 @media (min-width: 461px) and (max-width: 960px) {

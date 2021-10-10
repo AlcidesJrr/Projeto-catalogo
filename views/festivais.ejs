@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>BG | Detalhes</title>
+    <title>BG | Festivais</title>
     <link rel="icon" type="image/png" href="./img/camera-fotografica.png"/>
 </head>
 
@@ -32,19 +32,35 @@
                         <li><a href="/casamentos">Casamentos</a></li>
                         <li><a href="/churrascos">Churrascos</a></li>  
                         <li><a href="/festivais">Festivais</a></li>
-                        <li><a href="/happy-hour">Happy hour</a></li>
+                        <li><a href="/happyHour">Happy hour</a></li>
                         <li><a href="/malabares">Malabares</a></li>
                         <li><a href="/reveillons">Réveillons</a></li>
-                    </ul>
+                </ul>
             </li>   
             <li>
                 <a href="/sobre">Sobre</a>
             </li>
             <li>
-                <a href="/membros">Usuário</a>
+                <a href="/controle">Usuário</a>
             </li>
         </ul>
     </nav>
 
-</body>
-</html>
+    <div class="titulo">
+        <img src='./img/66.png'>
+    </div>
+<section id="book">
+    <% festivais.forEach((item, festivais) => { %>
+        <a class= "card" href="/detalhes/<%= festivais%>">
+            <img src='<%= item.imagem %>'>
+            <h3>
+                <p>Evento: <%= item.nome %></p>
+                <p>Data: <%= item.data %></p>
+                <p>Local: <%= item.local %></p>
+                <p>Nome do autor: <%= item.nome %></p>
+            </h3>
+        <% }) %>
+    </a>
+    </section>
+    </body>
+    </html>
