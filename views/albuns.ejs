@@ -46,13 +46,13 @@
 </body>
 </html>
 
-<% eventos_img.forEach((item, eventos) => { %>
 <header id="book"> 
     <h1>
-        <img src='<%= item.local_imagem_titulo %>'>
+        <div class="titulo">
+        <img src='<%= eventos_img.local_imagem_titulo %>'>
+        </div>
     </h1>
 </header>
-<% }) %>
 
 <section id="book">
     <% albuns.forEach((item, albuns) => { %>

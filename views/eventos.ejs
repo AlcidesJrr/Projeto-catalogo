@@ -38,7 +38,7 @@
     </div>
     <section class="card">
         <% eventos_img.forEach((item, eventos) => { %>
-            <a class= "card" href="/albuns/<%= eventos.id_eventos %>">
+            <a class= "card" href="/albuns/<%= item.id_eventos %>">
             <img src='<%= item.local_imagem %>'>
         <% }) %>
     </a>
