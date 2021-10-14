@@ -26,19 +26,6 @@ app.get("/eventos", async (req, res) => {
 });
 
 
-// DUVIDA ************
-
-// app.get("/albuns/", async  (req, res) => { 
-//   const albuns = await Albuns_.findAll();
-//   // const eventos_img = await Eventos_img.findByPk(req.params.id);
-//   const eventos_img = await Eventos_img.findAll();
-
-//   res.render("albuns", {
-//     albuns,
-//     eventos_img
-//   });
-// });
-
 app.get("/albuns/:id", async  (req, res) => { 
   const albuns = await Albuns_.findAll();
   const eventos_img = await Eventos_img.findByPk(req.params.id);
