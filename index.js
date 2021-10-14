@@ -36,8 +36,6 @@ app.get("/albuns/:id", async  (req, res) => {
   });
 });
 
-
-
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -170,62 +168,12 @@ app.get("/eventos/:id", async (req, res) => {
     album
   });
 
-
 });
-
 
 app.get("/sobre", (req, res) => {
   res.render("sobre");
 });
 
-
-app.get("/aniversarios", (req, res) => {
-  res.render("aniversarios", {
-      aniversarios: aniversarios
-  });
-});
-
-app.get("/baladas", (req, res) => {
-  res.render("baladas", {
-    baladas: baladas
-});
-});
-
-app.get("/casamentos", (req, res) => {
-  res.render("casamentos", {
-    casamentos: casamentos
-});
-});
-
-app.get("/churrascos", (req, res) => {
-  res.render("churrascos",{
-    churrascos: churrascos
-});
-});
-
-app.get("/festivais", (req, res) => {
-  res.render("festivais", {
-    festivais: festivais
-});
-});
-
-app.get("/happyHour", (req, res) => {
-  res.render("happyHour", {
-    happyHour: happyHour
-});
-});
-
-app.get("/malabares", (req, res) => {
-  res.render("malabares", {
-    malabares: malabares
-});
-});
-
-app.get("/reveillons", (req, res) => {
-  res.render("reveillons", {
-    reveillons: reveillons
-});
-});
 
 app.post('/controle', (req, res) => {
   let login = req.body.login;
@@ -237,6 +185,16 @@ app.post('/controle', (req, res) => {
     message = 'Usuário ou senha inválido'
     res.redirect('/controle')
   };
+});
+
+app.get("/fotos/:id", async  (req, res) => { 
+  const albuns = await Albuns_.findAll();
+  const eventos_img = await Eventos_img.findByPk(req.params.id);
+
+  res.render("fotos", {
+    albuns,
+    eventos_img
+  });
 });
 
 app.listen(port, () =>

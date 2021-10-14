@@ -33,27 +33,12 @@
         </ul>
     </nav>
 
-<header id="book"> 
-    <h1>
-        <div class="titulo">
-        <img src='<%= eventos_img.local_imagem_titulo %>'>
-        </div>
-    </h1>
-</header>
-
-<section id="book">
-    <% albuns.forEach((item, albuns) => { %>
-        <a class= "card" href="/fotos/<%= item.id_albuns %>"">
-            <img src='<%= item.album_imagem %>'>
-            <h3>
-                <p>Evento: <%= item.nome_album %></p>
-                <p>Data: <%= item.data_album %></p>
-                <p>Local: <%= item.local_album %></p>
-                <p>Nome do autor: <%= item.nome_autor %></p>
-            </h3>
-</a>
-<% }) %>
-</section>
-<script src="/js/script.js"></script>
-</body>
-</html>
+    <section id="book">
+        <% albuns.forEach((item, albuns) => { %>
+                <img src='<%= item.album_imagem %>'width="30%">
+    </a>
+    <% }) %>
+    </section>
+    <script src="/js/script.js"></script>
+    </body>
+    </html>
