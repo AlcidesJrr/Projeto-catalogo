@@ -46,19 +46,18 @@
         </ul>
     </nav>
 
-    <section class="container">
-        <section id="cadastrar">
-        <form action="/membros" method="POST">
+    <section id="cadastrar">
+        <form action="/editar/<%= albuns.id_albuns %>" method="POST">
                     <div>
                         <label for="album">Álbum: </label>
-                        <input type="text" name="nome_album" id="album" placeholder="Digite o nome do álbum" required>
+                        <input type="text" name="nome_album" id="album" placeholder="Digite o nome do álbum" value= '<%= albuns.nome_album %>'required>
                     </div>
         
                     <div>
                         <label for="nome">Nome: </label>
-                        <input type="text" name="nome_autor" id="nome" placeholder="Digite seu nome" required>
+                        <input type="text" name="nome_autor" id="nome" placeholder="Digite seu nome" value= '<%= albuns.nome_autor%>' required>
                     </div>
-            
+                    
                     <div>
                         <label for="evento">Evento: </label>
                         <select name="evento_album">
@@ -76,22 +75,25 @@
             
                     <div>
                         <label for="imagem">Imagem: </label>
-                        <input type="text" name="album_imagem" id="imagem" placeholder="Digite o link da imagem" required>
+                        <input type="text" name="album_imagem" id="imagem" placeholder="Digite o link da imagem" value= '<%= albuns.album_imagem %>' required>
                     </div>
                     <div>
                         <label for="local">Local: </label>
-                        <input type="text" name="local_album" id="local" placeholder="Digite a localidade" required>
+                        <input type="text" name="local_album" id="local" placeholder="Digite a localidade" value= '<%= albuns.local_album %>' required>
                     </div>
 
                     <div>
                         <label for="data">Data: </label>
-                        <input type="date" name="data_album" id="data" placeholder="Digite a data" required>
+                        <input type="date" name="data_album" id="data" placeholder="Digite a data" value= '<%= albuns.data_album %>' required>
                     </div>
-            
-                    <button class="btnCadastrar" type="submit">Cadastrar</button>
+                <div >    
+                    <button class="btn_editar" type="submit"><span class="editar_btn">Editar</span></button>
+                </div>    
                 </form>
+           <section>
 
-                <table class="tableteste">
+            <section class='editar'>
+                <table>
                     <tr>
                         <td>Id</td>
                         <td>Album</td>
@@ -113,13 +115,14 @@
                         <td><%= item.local_album %></td>
                         <td><%= item.data_album %></td>
                         <td>
-                            <a  href="/editar/<%= item.id_albuns %>"><img src="/img/editar.png"></a>
+                            <a href="/editar/<%= item.id_albuns %>"><img src="/img/editar.png"></a>
                             <a href="/deletar/<%= item.id_albuns %>"><img src="/img/lixeira.png"></a>
                         </td>
                     </tr>
                     <% }) %>
-                </table>    
-        </section>        
+                </table>
+            </section>
+
         <script src="/js/script.js"></script>
 </body>
 </html>

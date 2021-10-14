@@ -389,6 +389,70 @@ div.card img:hover {
   border-radius: 3rem;
 }
 
+table {
+  width: 100%;
+  position: absolute;
+  left: 100%;
+  top: -15.5%;
+  background-image: rgb(15, 1, 1);
+  color: rgb(47, 49, 44);
+  margin: 5rem 20rem 0rem 2rem;
+  box-shadow: 0 0 1rem #c92e2e36;
+}
+
+table td {
+  width: 20%;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+table td img {
+  width: 40%;
+}
+
+table tr:first-child {
+  background: rgb(70, 67, 67);
+  color: #fff;
+  font-weight: bold;
+  padding: 25px, 0;
+}
+
+.btn_editar {
+  border: 0.1rem solid #ccc;;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.3rem;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  width: 45%;
+  margin-top: 1rem;
+}
+
+.editar_btn {
+  color: rgb(209, 38, 38);
+}
+
+.btn_editar:hover {
+  background-image: linear-gradient(to right, rgba(182, 187, 153, 0.664),rgb(233, 150, 56));
+}
+
+.container {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding-left: 0.5rem;
+}
+
+.sub_menu_mebros {
+  position: absolute;
+  
+}
+
+
 @media (min-width: 461px) and (max-width: 960px) {
   section#cadastrar form button {
   font-size: 2.5vw;

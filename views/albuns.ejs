@@ -12,7 +12,7 @@
 <body>
     <nav class="sub-menu">
         <article>
-            <img src="./img/book-logo.gif" class="igm-bookdagalera" alt="Nome da logo">
+            <img src="/img/book-logo.gif" class="igm-bookdagalera" alt="Nome da logo">
             <h1>
                 <a href="/">Book Da Galera</a>
             </h1>
@@ -33,17 +33,40 @@
         </ul>
     </nav>
 
-    <div class="titulo">
-        <img src='./img/11.png'>
-    </div>
-    <section class="card">
-        <% eventos_img.forEach((item, eventos) => { %>
-            <a class= "card" href="/albuns/<%= eventos.id_eventos %>">
-            <img src='<%= item.local_imagem %>'>
-        <% }) %>
-    </a>
-    </section>
     <script src="/js/script.js"></script>
 </body>
 </html>
 
+
+<div class="titulo">
+    <!-- <img src='/img/33.png'> -->
+</div>
+
+</section>
+</body>
+</html>
+
+<% eventos_img.forEach((item, eventos) => { %>
+<header id="book"> 
+    <h1>
+        <img src='<%= item.local_imagem_titulo %>'>
+    </h1>
+</header>
+<% }) %>
+
+<section id="book">
+    <% albuns.forEach((item, albuns) => { %>
+        <a class= "card" href="/albuns/<%= albuns %>"">
+            <img src='<%= item.album_imagem %>'>
+            <h3>
+                <p>Evento: <%= item.nome_album %></p>
+                <p>Data: <%= item.data_album %></p>
+                <p>Local: <%= item.local_album %></p>
+                <p>Nome do autor: <%= item.nome_autor %></p>
+            </h3>
+</a>
+<% }) %>
+</section>
+<script src="/js/script.js"></script>
+</body>
+</html>

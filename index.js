@@ -3,22 +3,41 @@ const app = express();
 const port = process.env.PORT || 3000;
 const path = require("path");
 const bodyParser = require("body-parser");
+const Sequelize = require("sequelize");
+require('dotenv').config()
 
 let message = "";
-const aniversarios = [];
-const baladas = [];
-const casamentos = [];
-const churrascos = [];
-const festivais = [];
-const happyHour = [];
-const malabares = [];
-const reveillons = [];
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.urlencoded());
 app.use(express.static(path.join(__dirname, "public")));
 
+const Eventos_img = require("./models/eventos");
+const Albuns_ = require("./models/albuns");
+
+
+app.get("/eventos", async (req, res) => {
+  const eventos_img = await Eventos_img.findAll();
+
+  res.render("eventos", {
+    eventos_img,
+  });
+});
+
+
+// DUVIDA ************
+
+app.get("/albuns/", async  (req, res) => { 
+  const albuns = await Albuns_.findAll();
+  // const eventos_img = await Eventos_img.findByPk(req.params.id);
+  const eventos_img = await Eventos_img.findAll();
+
+  res.render("albuns", {
+    albuns,
+    eventos_img
+  });
+});
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -34,17 +53,132 @@ app.get("/controle", (req, res) => {
   });
 });
 
-app.get("/membros", (req, res) => {
-  res.render("membros");
+app.get("/membros", async (req, res) => {
+  const album = await Albuns_.findAll();
+
+  res.render("membros", {
+    album,
+  });
 });
+
+
+app.post("/membros", async (req, res) => {
+  const album = await Albuns_.findAll();
+
+  const { nome_album, nome_autor, evento_album, album_imagem, local_album, data_album } = req.body;
+
+  const album_a = await Albuns_.create({
+    nome_album,
+    nome_autor,
+    evento_album,
+    album_imagem,
+    local_album,
+    data_album
+  });
+
+
+  if (!nome_album) {
+    res.render("membros", {
+      mensagem: "Nome é obrigatório",
+    });
+  }
+  if (!nome_autor) {
+    res.render("membros", {
+      mensagem: "Imagem é obrigatório",
+    });
+  }
+
+  if (!album_imagem) {
+    res.render("membros", {
+      mensagem: "Imagem é obrigatório",
+    });
+  }
+
+  try {
+    const albuns_a = await Albuns_.create({
+      nome_album,
+      nome_autor,
+      album_imagem
+    });
+
+    res.render("membros", {
+      albuns_a,
+      album
+    });
+  } catch (err) {
+    console.log(err);
+
+    res.render("membros", {
+      album_a,
+      album
+    });
+  }
+
+});
+
+app.get("/editar/:id", async (req, res) => {
+  const albuns = await Albuns_.findByPk(req.params.id);
+  const album = await Albuns_.findAll();
+
+  if (!albuns) {
+    res.render("editar", {
+      mensagem: "Filme não encontrado!",
+    });
+  }
+  res.render("editar", {
+    albuns,
+    album
+  });
+});
+
+
+app.post("/editar/:id", async (req, res) => {
+  const albuns = await Albuns_.findByPk(req.params.id);
+
+  const { nome_album, nome_autor, evento_album, album_imagem, local_album, data_album } = req.body;
+  albuns.nome_album = nome_album,
+  albuns.nome_autor = nome_autor,
+  albuns.evento_album = evento_album,
+  albuns.album_imagem = album_imagem,
+  albuns.local_album = local_album,
+  albuns.data_album = data_album
+
+  const albunsEditado = await albuns.save();
+
+  res.render("deletar", {
+    albuns: albunsEditado,
+    mensagemSucesso: "Filme editado com sucesso!",
+  });
+});
+
+app.get("/deletar/:id", async (req, res) => {
+  const albuns = await Albuns_.findByPk(req.params.id);
+  const album = await Albuns_.findAll();
+
+  await albuns.destroy();
+
+  res.render("deletar", {
+    albuns,
+    album
+  })
+});
+
+
+app.get("/eventos/:id", async (req, res) => {
+  const album = await Albuns_.findAll();
+
+  res.render("eventos", {
+    album
+  });
+
+
+});
+
 
 app.get("/sobre", (req, res) => {
   res.render("sobre");
 });
 
-app.get("/eventos", (req, res) => {
-  res.render("eventos");
-});
 
 app.get("/aniversarios", (req, res) => {
   res.render("aniversarios", {
@@ -105,39 +239,6 @@ app.post('/controle', (req, res) => {
     res.redirect('/controle')
   };
 });
-
-app.post("/new", (req, res) => {
-  const album = req.body;
-  let escolha = req.body.evento
-
-  if (escolha == 'aniversarios') {
-    aniversarios.push(album);
-  } else if (escolha == 'baladas') {
-      baladas.push(album);
-  } else if (escolha == 'casamentos') {
-    casamentos.push(album);
-  } else if (escolha == 'churrascos') {
-    churrascos.push(album);
-  } else if (escolha == 'festivais') {
-    festivais.push(album);
-  } else if (escolha == 'happyHour') {
-    happyHour.push(album);
-  } else if (escolha == 'malabares') {
-    malabares.push(album);
-  } else if (escolha == 'reveillons') {
-    reveillons.push(album);
-  }   
-
-  res.redirect(escolha);
-});
-
-// app.get("/detalhes/:id", (req, res) => {
-//   const id = req.params.id;
-//   const bookDaGalera = book[id];
-//   res.render("detalhes", {
-//     bookDaGalera,
-//   });
-// });
 
 app.listen(port, () =>
 console.log(`Servidor rodando em http://localhost:${port}`)

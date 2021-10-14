@@ -34,11 +34,22 @@
     </nav>
 
     <div class="titulo">
-        <img src='./img/11.png'>
-    </div>
-    <section class="card">
         <% eventos_img.forEach((item, eventos) => { %>
-            <a class= "card" href="/albuns/<%= eventos.id_eventos %>">
+        <img src='<%=  item.local_imagem_titulo %>'>
+    </div>
+    <!-- <section class="card">
+        <a href="/aniversarios"><img src='./img/1.png'></a>
+        <a href="/baladas"><img src='./img/2.png'></a>
+        <a href="/casamentos"><img src='./img/3.png'></a>
+        <a href="/churrascos"><img src='./img/4.png'></a>
+        <a href="/festivais"><img src='./img/5.png'></a>
+        <a href="/happyHour"><img src='./img/6.png'></a>
+        <a href="/malabares"><img src='./img/7.png'></a>
+        <a href="/reveillons"><img src='./img/8.png'></a>
+    </section> -->
+
+    <section class="card">
+            <a class= "card" href="/albuns/<%= eventos_img %>">
             <img src='<%= item.local_imagem %>'>
         <% }) %>
     </a>
@@ -46,4 +57,3 @@
     <script src="/js/script.js"></script>
 </body>
 </html>
-
