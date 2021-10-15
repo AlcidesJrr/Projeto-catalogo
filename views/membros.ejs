@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <nav class="sub-menu">
+    <nav>
         <article>
             <img src="./img/book-logo.gif" class="igm-bookdagalera" alt="Nome da logo">
             <h1>
@@ -26,8 +26,7 @@
         </ul>
         <ul>
             <li>
-                <a href="/eventos">Eventos
-                </a>
+                <a href="/eventos">Eventos</a>
             </li>   
             <li>
                 <a href="/">Home</a>
@@ -37,7 +36,7 @@
 
     <section class="container">
         <section id="cadastrar">
-        <form action="/membros" method="POST">
+                <form action="/membros" method="POST">
                     <div>
                         <label for="album">Álbum: </label>
                         <input type="text" name="nome_album" id="album" placeholder="Digite o nome do álbum" required>
@@ -80,7 +79,7 @@
                     <button class="btnCadastrar" type="submit">Cadastrar</button>
                 </form>
 
-                <table class="tableteste">
+                <table class="table_album">
                     <tr>
                         <td>Id</td>
                         <td>Album</td>
@@ -102,13 +101,15 @@
                         <td><%= item.local_album %></td>
                         <td><%= item.data_album %></td>
                         <td>
-                            <a  href="/editar/<%= item.id_albuns %>"><img src="/img/editar.png"></a>
+                            <a href="/editar/<%= item.id_albuns %>"><img src="/img/editar.png"></a>
                             <a href="/deletar/<%= item.id_albuns %>"><img src="/img/lixeira.png"></a>
                         </td>
                     </tr>
                     <% }) %>
                 </table>    
-        </section>        
+            </section>   
+        </section>  
+
         <script src="/js/script.js"></script>
 </body>
 </html>

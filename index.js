@@ -29,12 +29,13 @@ app.get("/eventos", async (req, res) => {
 
 
 app.get("/albuns/:id", async  (req, res) => { 
-  let eventos_ = ["aniversarios", "baladas", "casamentos", "churrascos", "festivais", "happyHour", "malabares","reveillons"];
-
   const eventos_img = await Eventos_img.findByPk(req.params.id);
+
+  let eventos_ = ["aniversarios", "baladas", "casamentos", "churrascos", "festivais", "happyHour", "malabares","reveillons"];
 
   let alb_db = parseInt(req.params.id)
   alb_db--
+
   let albuns = await Albuns_.findAll({
     where: {
     evento_album: eventos_[alb_db]
@@ -118,7 +119,6 @@ app.get("/editar/:id", async (req, res) => {
     album
   });
 });
-
 
 app.post("/editar/:id", async (req, res) => {
   const albuns = await Albuns_.findByPk(req.params.id);

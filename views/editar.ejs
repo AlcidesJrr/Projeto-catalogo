@@ -12,7 +12,7 @@
 <body>
     <nav class="sub-menu">
         <article>
-            <img src="./img/book-logo.gif" class="igm-bookdagalera" alt="Nome da logo">
+            <img src="/img/book-logo.gif" class="igm-bookdagalera" alt="Nome da logo">
             <h1>
                 <a href="/">Book Da Galera</a>
             </h1>
@@ -26,20 +26,11 @@
         </ul>
         <ul>
             <li>
-                <a href="/eventos">Eventos
-                    <span class="ico-seta-menu">&nbsp;</span>
-                </a>
-                    <ul class="sub_menu_mebros">
-                        <li><a href="/aniversarios">Aniversários</a></li>  
-                        <li><a href="/baladas">Baladas</a></li>
-                        <li><a href="/casamentos">Casamentos</a></li>
-                        <li><a href="/churrascos">Churrascos</a></li>  
-                        <li><a href="/festivais">Festivais</a></li>
-                        <li><a href="/happyHour">Happy hour</a></li>
-                        <li><a href="/malabares">Malabares</a></li>
-                        <li><a href="/reveillons">Réveillons</a></li>
-                </ul>
-            </li>   
+                <a href="/eventos">Eventos</a>
+            </li> 
+            <li>
+                <a href="/membros">Cadastrar</a>
+            </li>  
             <li>
                 <a href="/">Home</a>
             </li>
@@ -87,13 +78,12 @@
                         <input type="date" name="data_album" id="data" placeholder="Digite a data" value= '<%= albuns.data_album %>' required>
                     </div>
                 <div >    
-                    <button class="btn_editar" type="submit"><span class="editar_btn">Editar</span></button>
+                    <button class="btnCadastrar" type="submit"><span class="editar_btn">Editar</span></button>
                 </div>    
                 </form>
            <section>
 
-            <section class='editar'>
-                <table>
+                <table class="table_album">
                     <tr>
                         <td>Id</td>
                         <td>Album</td>
@@ -121,7 +111,6 @@
                     </tr>
                     <% }) %>
                 </table>
-            </section>
 
         <script src="/js/script.js"></script>
 </body>
