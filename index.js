@@ -6,15 +6,17 @@ const bodyParser = require("body-parser");
 const Sequelize = require("sequelize");
 require('dotenv').config()
 
-let message = "";
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.urlencoded());
 app.use(express.static(path.join(__dirname, "public")));
 
+
 const Eventos_img = require("./models/eventos");
 const Albuns_ = require("./models/albuns");
+
+let message = "";
 
 
 app.get("/eventos", async (req, res) => {
@@ -27,8 +29,17 @@ app.get("/eventos", async (req, res) => {
 
 
 app.get("/albuns/:id", async  (req, res) => { 
-  const albuns = await Albuns_.findAll();
+  let eventos_ = ["aniversarios", "baladas", "casamentos", "churrascos", "festivais", "happyHour", "malabares","reveillons"];
+
   const eventos_img = await Eventos_img.findByPk(req.params.id);
+
+  let alb_db = parseInt(req.params.id)
+  alb_db--
+  let albuns = await Albuns_.findAll({
+    where: {
+    evento_album: eventos_[alb_db]
+    }
+    });
 
   res.render("albuns", {
     albuns,
@@ -36,9 +47,11 @@ app.get("/albuns/:id", async  (req, res) => {
   });
 });
 
+
 app.get("/", (req, res) => {
   res.render("index");
 });
+
 
 app.get("/controle", (req, res) => {
   setTimeout(() => {
@@ -70,26 +83,9 @@ app.post("/membros", async (req, res) => {
     evento_album,
     album_imagem,
     local_album,
-    data_album
+    data_album,
+
   });
-
-
-  if (!nome_album) {
-    res.render("membros", {
-      mensagem: "Nome é obrigatório",
-    });
-  }
-  if (!nome_autor) {
-    res.render("membros", {
-      mensagem: "Imagem é obrigatório",
-    });
-  }
-
-  if (!album_imagem) {
-    res.render("membros", {
-      mensagem: "Imagem é obrigatório",
-    });
-  }
 
   try {
     const albuns_a = await Albuns_.create({
@@ -117,11 +113,6 @@ app.get("/editar/:id", async (req, res) => {
   const albuns = await Albuns_.findByPk(req.params.id);
   const album = await Albuns_.findAll();
 
-  if (!albuns) {
-    res.render("editar", {
-      mensagem: "Filme não encontrado!",
-    });
-  }
   res.render("editar", {
     albuns,
     album
@@ -159,7 +150,6 @@ app.get("/deletar/:id", async (req, res) => {
     album
   })
 });
-
 
 app.get("/eventos/:id", async (req, res) => {
   const album = await Albuns_.findAll();

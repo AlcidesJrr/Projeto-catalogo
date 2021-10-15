@@ -336,8 +336,16 @@ span#close {
   width: 960px;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 a.card:hover {
   transform: scale(1.1);
+}
+
+.card p {
+  padding: 0.2rem;
 }
 
 a.card img {
@@ -358,6 +366,7 @@ section#book {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  text-decoration-line: none;
 }
 
 section.card{
@@ -367,6 +376,7 @@ section.card{
   justify-content: flex-start;
   margin-right: 0;
   margin-left: 140px;
+  text-decoration-line: none;
 }
 
 .titulo {
@@ -379,7 +389,6 @@ div.card img:hover {
 }
 
 .card a {
-
  margin: 1rem;
 }
 
