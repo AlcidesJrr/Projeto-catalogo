@@ -335,6 +335,32 @@ span#close {
   width: 960px;
 }
 
+.eventos_all {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.img_sobre {
+  width: 40%;
+  margin-bottom: -8rem;
+}
+
+.img_eventos{
+  width: 25%;
+  margin-top: -6rem;
+  margin-bottom: -12rem;
+}
+
+.card_eventos {
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2rem;
+}
+
 a {
   text-decoration: none !important;
 }
@@ -343,13 +369,27 @@ a.card:hover {
   transform: scale(1.1);
 }
 
+section#card_albuns {
+  display: flex;
+  margin-top: 5rem;
+
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px;
+}
+
 .card p {
   padding: 0.2rem;
 }
 
 a.card img {
-  width: 15rem;
-  height: 15rem;
+  width: 12rem;
+  height: 12rem;
 }
 
 a.card h3 {
@@ -359,23 +399,12 @@ a.card h3 {
   font-size: 0.8rem;
 }
 
-section#book {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  text-decoration-line: none;
+.card img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 2rem;
 }
 
-section.card{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-right: 0;
-  margin-left: 140px;
-  text-decoration-line: none;
-}
 
 .titulo {
   margin: auto;
@@ -384,16 +413,6 @@ section.card{
 
 div.card img:hover {
   transform: scale(1.1);
-}
-
-.card a {
- margin: 1rem;
-}
-
-.card img {
-  width: 15rem;
-  height: 15rem;
-  border-radius: 3rem;
 }
 
 .table_album {
@@ -424,6 +443,8 @@ table a img:hover {
   background-color: rgba(91, 60, 175, 0.192);
   transform: scale(1.1);
   border-radius: 0.3rem;
+  cursor: pointer;
+  transition: 0.3s ease-out;
 }
 
 table tr:first-child {
@@ -472,3 +493,63 @@ table tr:first-child {
 
 tr:nth-child(even) {background: #FFF}
 tr:nth-child(odd) {background: rgb(229, 230, 225)}
+
+/* ------------------------------------- */
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+section#adicionar {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  margin: 5rem 20rem 0rem 2rem;
+  border-radius: 0.2rem;
+  width: 30%;
+  position: absolute;
+  box-shadow: 0 0 1rem #c9717136;
+  left: 61%;
+  bottom: 58%;
+}
+
+.fechar {
+  position: absolute;
+  width: 25px;
+  left: 92%;
+  top: 6%;
+  text-align: center;
+  line-height: 25px;
+  margin-top: 5px;
+  background: #9e7c7c41;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #df0808;
+}
+
+.fechar:hover {
+  background-color: rgba(91, 60, 175, 0.192);
+  transform: scale(1.1);
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}

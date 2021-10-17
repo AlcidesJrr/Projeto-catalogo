@@ -105,12 +105,30 @@
                         <td><%= item.local_album %></td>
                         <td><%= item.data_album %></td>
                         <td>
-                            <a href="/editar/<%= item.id_albuns %>"><img src="/img/editar.png"></a>
-                            <a href="/deletar/<%= item.id_albuns %>"><img src="/img/lixeira.png"></a>
+                            <a href="/editar/<%= item.id_albuns %>"><img class="edit" src="/img/editar.png"></a>
+                            <a href="/deletar/<%= item.id_albuns %>"><img class="delt" src="/img/lixeira.png"></a>
+                            <a href="#abrirModal"><img src = "/img/adicionar.png"></a>
+
+                            <div id="abrirModal" class="modal">
+                                <a href="#fechar" title="Fechar" class="fechar">x</a>
+                                <section class="container">
+                                    <section id="cadastrar">
+                                            <form action="/uploads" method="POST" enctype="multipart/form-data">
+                                                <div>
+                                                    <label for="album">Upload imagens: </label>
+                                                    <input type="file" name="file" id="file" placeholder="Digite o nome do álbum" required>
+                                                </div> 
+                                                <button class="btnCadastrar" type="submit">Upload</button>
+                                            </form> 
+                                        </section>   
+                                    </section>  
+                            </div></a>
                         </td>
                     </tr>
                     <% }) %>
-                </table>
+                </table>    
+            </section>   
+        </section>  
 
         <script src="/js/script.js"></script>
 </body>

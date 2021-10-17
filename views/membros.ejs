@@ -103,6 +103,21 @@
                         <td>
                             <a href="/editar/<%= item.id_albuns %>"><img src="/img/editar.png"></a>
                             <a href="/deletar/<%= item.id_albuns %>"><img src="/img/lixeira.png"></a>
+                            <a href="#abrirModal"><img src = "/img/adicionar.png"></a>
+                            <a>   
+                            <div id="abrirModal" class="modal">
+                                    <section id="adicionar">
+                                        <form action="/uploads" method="POST" enctype="multipart/form-data">
+                                            <div>
+                                                <a href="#fechar" title="Fechar" class="fechar">x</a>
+                                                <label for="album">Upload imagens: </label>
+                                                <input type="file" name="file" id="file"  required>
+                                            </div> 
+                                            <button class="btnCadastrar" type="submit">Upload</button>
+                                        </form> 
+                                    </section>   
+                            </div>
+                            </a>
                         </td>
                     </tr>
                     <% }) %>

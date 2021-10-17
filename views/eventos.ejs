@@ -33,16 +33,18 @@
         </ul>
     </nav>
 
-    <div class="titulo">
-        <img src='./img/11.png'>
-    </div>
+    <div class="eventos_all">  
+        
+        <img class="img_eventos"src='./img/11.png'>
+
     <section class="card">
         <% eventos_img.forEach((item, eventos) => { %>
             <a class= "card" href="/albuns/<%= item.id_eventos %>">
             <img src='<%= item.local_imagem %>'>
         <% }) %>
-    </a>
+            </a>
     </section>
+    </div>
     <script src="/js/script.js"></script>
 </body>
 </html>

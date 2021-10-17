@@ -33,15 +33,10 @@
         </ul>
     </nav>
 
-<header id="book"> 
-    <h1>
-        <div class="titulo">
-        <img src='<%= eventos_img.local_imagem_titulo %>'>
-        </div>
-    </h1>
-</header>
+    <div class="eventos_all">
+       <img class="img_eventos" src='<%= eventos_img.local_imagem_titulo %>'>
 
-<section id="book">
+<section id="card_albuns">
     <% albuns.forEach((item, albuns) => { %>
         <a class= "card" href="/fotos/<%= item.id_albuns %>"">
             <img src='<%= item.album_imagem %>'>
@@ -51,9 +46,10 @@
                 <p>Local: <%= item.local_album %></p>
                 <p>Nome do autor: <%= item.nome_autor %></p>
             </h3>
-</a>
-<% }) %>
+        </a>
+    <% }) %>
 </section>
+</div>
 <script src="/js/script.js"></script>
 </body>
 </html>

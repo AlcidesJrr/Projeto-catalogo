@@ -5,19 +5,29 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const Sequelize = require("sequelize");
 require('dotenv').config()
-
+const multer = require("multer");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.urlencoded());
 app.use(express.static(path.join(__dirname, "public")));
 
-
 const Eventos_img = require("./models/eventos");
 const Albuns_ = require("./models/albuns");
 
-let message = "";
 
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, "uploads/")
+  },
+  filename:function(req, file, cb) {
+    cb(null, file.originalname + Date.now() + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({storage});
+
+let message = "";
 
 app.get("/eventos", async (req, res) => {
   const eventos_img = await Eventos_img.findAll();
@@ -145,10 +155,7 @@ app.get("/deletar/:id", async (req, res) => {
 
   await albuns.destroy();
 
-  res.render("deletar", {
-    albuns,
-    album
-  })
+  res.render("deletar")
 });
 
 app.get("/eventos/:id", async (req, res) => {
@@ -163,7 +170,6 @@ app.get("/eventos/:id", async (req, res) => {
 app.get("/sobre", (req, res) => {
   res.render("sobre");
 });
-
 
 app.post('/controle', (req, res) => {
   let login = req.body.login;
@@ -186,6 +192,14 @@ app.get("/fotos/:id", async  (req, res) => {
     eventos_img
   });
 });
+
+app.get("/uploads", (req, res) => {
+  res.render("uploads");
+});
+
+app.post("/uploads", upload.single("file"), (req, res) => {
+  res.redirect('/membros');
+})
 
 app.listen(port, () =>
 console.log(`Servidor rodando em http://localhost:${port}`)
