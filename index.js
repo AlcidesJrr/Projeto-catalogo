@@ -6,7 +6,10 @@ const bodyParser = require("body-parser");
 const Sequelize = require("sequelize");
 require('dotenv').config()
 const multer = require("multer");
+app.use(express.json());
+const morgan = require('morgan');
 
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.urlencoded());
@@ -36,6 +39,82 @@ app.get("/eventos", async (req, res) => {
     eventos_img,
   });
 });
+
+
+// ________________________________________
+
+const knex = require('knex');
+const db = knex({
+  client: 'postgres',
+  connection: {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_BASE,
+  },
+  }
+);
+
+const imageUpload = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+    cb(null, 'images/');
+    },
+    filename: function (req, file, cb) {
+    cb(null, new Date().valueOf() + '_' + file.originalname);
+    }
+  }), 
+});
+
+app.post('/image', imageUpload.single('image'), (req, res) => {
+    const { filename, mimetype, size } = req.file;
+    const filepath = req.file.path;
+db
+  .insert({
+        filename,
+        filepath,
+        mimetype,
+        size,
+        })
+  .into('image_files')
+  .then(() => res.json({ success: true, filename }))
+  .catch(err => res
+  .json({ 
+      success: false,
+      message: 'upload failed',
+      stack: err.stack,
+      })); 
+
+        res.render("deletar");
+});
+
+app.get('/image/:filename', (req, res) => {
+    const { filename } = req.params;
+    db
+      .select('*')
+      .from('image_files')
+      .where({ filename })
+      .then(images => {
+      if (images[0]) {
+        const dirname = path.resolve();
+        const fullfilepath = path.join(dirname, images[0].filepath);
+        return res
+      .type(images[0].mimetype)
+      .sendFile(fullfilepath);
+      }
+      return Promise.reject(new Error('Image does not exist'));
+      })
+      .catch(err => res
+      .status(404)
+      .json({
+        success: false, 
+        message: 'not found', 
+        stack: err.stack,
+      }),
+      );
+});
+
+// ________________________________________
 
 
 app.get("/albuns/:id", async  (req, res) => { 
@@ -193,13 +272,6 @@ app.get("/fotos/:id", async  (req, res) => {
   });
 });
 
-app.get("/uploads", (req, res) => {
-  res.render("uploads");
-});
-
-app.post("/uploads", upload.single("file"), (req, res) => {
-  res.redirect('/membros');
-})
 
 app.listen(port, () =>
 console.log(`Servidor rodando em http://localhost:${port}`)
