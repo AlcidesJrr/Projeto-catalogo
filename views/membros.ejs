@@ -10,31 +10,31 @@
 </head>
 
 <body>
-    <nav>
-        <article>
-            <img src="./img/book-logo.gif" class="igm-bookdagalera" alt="Nome da logo">
-            <h1>
-                <a href="/">Book Da Galera</a>
-            </h1>
-        </article>
-        <ul>
-            <li>
+    <header>
+        <nav>
+            <article>
+                <img src="./img/book-logo.gif" class="igm-bookdagalera" alt="Nome da logo">
                 <h1>
-                    <a>ADMINISTRATIVO</a>
+                    <a href="/">Book Da Galera</a>
                 </h1>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="/eventos">Eventos</a>
-            </li>   
-            <li>
-                <a href="/">Home</a>
-            </li>
-        </ul>
-    </nav>
-    <div class="nav_card">
-        <a href="#OpenCad"><h1>Cadastrar</h1></a>
+            </article>
+            <ul>
+                <li>
+                    <h1>
+                        <a>ADMINISTRATIVO</a>
+                    </h1>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/eventos">Eventos</a>
+                </li>   
+                <li>
+                    <a href="/">Home</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
             <div id="OpenCad" class="md">
                 <a href="#CloseCad" title="Fechar" class="CloseCad">x</a>
@@ -86,6 +86,9 @@
         </div>
 
                 <table class="table_album">
+                    <div class="nav_card">
+                        <a href="#OpenCad"><h1>Cadastrar</h1></a>
+                    </div> 
                     <tr>
                         <td>Id</td>
                         <td>Album</td>
@@ -178,8 +181,7 @@
                     <% }) %>
                 </table>     
         </section>  
-        <a>   
-            
+        <a>
         <script src="/js/script.js"></script>
 </body>
 </html>

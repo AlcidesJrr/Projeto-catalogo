@@ -112,7 +112,6 @@ app.get('/image/:filename', async (req, res) => {
 // ________________________________________
 
 
-
 app.get("/albuns/:id", async  (req, res) => { 
   const eventos_img = await Eventos_img.findByPk(req.params.id);
 
