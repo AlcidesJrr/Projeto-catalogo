@@ -170,7 +170,6 @@ app.post("/membros", async (req, res) => {
     album_imagem,
     local_album,
     data_album,
-
   });
 
   try {

@@ -33,51 +33,57 @@
             </li>
         </ul>
     </nav>
+    <div class="nav_card">
+        <a href="#OpenCad"><h1>Cadastrar</h1></a>
 
-    <section class="container">
-        <section id="cadastrar">
-                <form action="/membros" method="POST">
-                    <div>
-                        <label for="album">Álbum: </label>
-                        <input type="text" name="nome_album" id="album" placeholder="Digite o nome do álbum" required>
-                    </div>
-        
-                    <div>
-                        <label for="nome">Nome: </label>
-                        <input type="text" name="nome_autor" id="nome" placeholder="Digite seu nome" required>
-                    </div>
+            <div id="OpenCad" class="md">
+                <a href="#CloseCad" title="Fechar" class="CloseCad">x</a>
+                <section id="cadastrar">
+                    <form action="/membros" method="POST">
+                        <div>
+                            <label for="album">Álbum: </label>
+                            <input type="text" name="nome_album" id="album" placeholder="Digite o nome do álbum" required>
+                        </div>
             
-                    <div>
-                        <label for="evento">Evento: </label>
-                        <select name="evento_album">
-                            <option value="nenhum">Escolha um álbum</option>
-                            <option value="aniversarios">Aniversários</option>
-                            <option value="baladas">Baladas</option>
-                            <option value="casamentos">Casamentos</option>
-                            <option value="churrascos">Churrascos</option>
-                            <option value="festivais">Festivais</option>
-                            <option value="happyHour">Happy your</option>
-                            <option value="malabares">Malabares</option>
-                            <option value="reveillons">Réveillons</option>
-                        </select>
-                    </div>
-            
-                    <div>
-                        <label for="imagem">Imagem: </label>
-                        <input type="text" name="album_imagem" id="imagem" placeholder="Digite o link da imagem" required>
-                    </div>
-                    <div>
-                        <label for="local">Local: </label>
-                        <input type="text" name="local_album" id="local" placeholder="Digite a localidade" required>
-                    </div>
-
-                    <div>
-                        <label for="data">Data: </label>
-                        <input type="date" name="data_album" id="data" placeholder="Digite a data" required>
-                    </div>
-            
-                    <button class="btnCadastrar" type="submit">Cadastrar</button>
-                </form>
+                        <div>
+                            <label for="nome">Nome: </label>
+                            <input type="text" name="nome_autor" id="nome" placeholder="Digite seu nome" required>
+                        </div>
+                
+                        <div>
+                            <label for="evento">Evento: </label>
+                            <select name="evento_album">
+                                <option value="nenhum">Escolha um álbum</option>
+                                <option value="aniversarios">Aniversários</option>
+                                <option value="baladas">Baladas</option>
+                                <option value="casamentos">Casamentos</option>
+                                <option value="churrascos">Churrascos</option>
+                                <option value="festivais">Festivais</option>
+                                <option value="happyHour">Happy your</option>
+                                <option value="malabares">Malabares</option>
+                                <option value="reveillons">Réveillons</option>
+                            </select>
+                        </div>
+                
+                        <div>
+                            <label for="imagem">Imagem: </label>
+                            <input type="text" name="album_imagem" id="imagem" placeholder="Digite o link da imagem" required>
+                        </div>
+                        <div>
+                            <label for="local">Local: </label>
+                            <input type="text" name="local_album" id="local" placeholder="Digite a localidade" required>
+                        </div>
+    
+                        <div>
+                            <label for="data">Data: </label>
+                            <input type="date" name="data_album" id="data" placeholder="Digite a data" required>
+                        </div>
+                
+                        <button class="btnCadastrar" type="submit">Cadastrar</button>
+                    </form>   
+                </section>   
+            </div></a>
+        </div>
 
                 <table class="table_album">
                     <tr>
@@ -101,7 +107,7 @@
                         <td><%= item.local_album %></td>
                         <td><%= item.data_album %></td>
                         <td>
-                            <a href="/editar/<%= item.id_albuns %>"><img src="/img/editar.png"></a>
+                            <a href="#edit_modal/<%= item.id_albuns %>"><img src="/img/editar.png"></a>
                             <a href="/deletar/<%= item.id_albuns %>"><img src="/img/lixeira.png"></a>
                             <a href="#abrirModal"><img src = "/img/adicionar.png"></a>
                             <a>   
@@ -117,14 +123,64 @@
                                         </form> 
                                     </section>   
                             </div>
+                            <div id="edit_modal/<%= item.id_albuns %>" class="modal">
+                                <section id="editar">
+                                    <form action="/editar/<%= item.id_albuns %>" method="POST">
+                                                <div>
+                                                    <a href="#fechar_edit" title="Fechar" class="fechar_edit">x</a>
+                                                    <label for="album">Álbum: </label>
+                                                    <input type="text" name="nome_album" id="album" placeholder="Digite o nome do álbum" value= '<%= item.nome_album %>'required>
+                                                </div>
+                                    
+                                                <div>
+                                                    <label for="nome">Nome: </label>
+                                                    <input type="text" name="nome_autor" id="nome" placeholder="Digite seu nome" value= '<%= item.nome_autor%>' required>
+                                                </div>
+                                                
+                                                <div>
+                                                    <label for="evento">Evento: </label>
+                                                    <select name="evento_album">
+                                                        <option value="nenhum">Escolha um álbum</option>
+                                                        <option value="aniversarios">Aniversários</option>
+                                                        <option value="baladas">Baladas</option>
+                                                        <option value="casamentos">Casamentos</option>
+                                                        <option value="churrascos">Churrascos</option>
+                                                        <option value="festivais">Festivais</option>
+                                                        <option value="happyHour">Happy your</option>
+                                                        <option value="malabares">Malabares</option>
+                                                        <option value="reveillons">Réveillons</option>
+                                                    </select>
+                                                </div>
+                                        
+                                                <div>
+                                                    <label for="imagem">Imagem: </label>
+                                                    <input type="text" name="album_imagem" id="imagem" placeholder="Digite o link da imagem" value= '<%= item.album_imagem %>' required>
+                                                </div>
+                                                <div>
+                                                    <label for="local">Local: </label>
+                                                    <input type="text" name="local_album" id="local" placeholder="Digite a localidade" value= '<%= item.local_album %>' required>
+                                                </div>
+                            
+                                                <div>
+                                                    <label for="data">Data: </label>
+                                                    <input type="date" name="data_album" id="data" placeholder="Digite a data" value= '<%= item.data_album %>' required>
+                                                </div>
+                                            <div >    
+                                                <button class="btnCadastrar" type="submit"><span class="editar_btn">Editar</span></button>
+                                            </div>    
+                                            </form>
+                                       <section> 
+                            </div>
                             </a>
-                        </td>
+                
+                        </td></a>
                     </tr>
                     <% }) %>
-                </table>    
-            </section>   
+                </table>     
         </section>  
-
+        <a>   
+            
         <script src="/js/script.js"></script>
 </body>
 </html>
+

@@ -37,7 +37,7 @@
         </ul>
     </nav>
 
-    <section id="cadastrar">
+    <section id="editar">
         <form action="/editar/<%= albuns.id_albuns %>" method="POST">
                     <div>
                         <label for="album">Álbum: </label>
@@ -82,53 +82,6 @@
                 </div>    
                 </form>
            <section>
-
-                <table class="table_album">
-                    <tr>
-                        <td>Id</td>
-                        <td>Album</td>
-                        <td>Autor</td>
-                        <td>Evento</td>
-                        <td>Imagem</td>
-                        <td>Local</td>
-                        <td>Data</td>
-                        <td>Action</td>
-                    </tr>
-        
-                    <% album.forEach((item, criar) => { %>
-                    <tr>
-                        <td><%= item.id_albuns %></td>
-                        <td><%= item.nome_album %></td>
-                        <td><%= item.nome_autor %></td>
-                        <td><%= item.evento_album %></td>
-                        <td><%= item.album_imagem %></td>
-                        <td><%= item.local_album %></td>
-                        <td><%= item.data_album %></td>
-                        <td>
-                            <a href="/editar/<%= item.id_albuns %>"><img class="edit" src="/img/editar.png"></a>
-                            <a href="/deletar/<%= item.id_albuns %>"><img class="delt" src="/img/lixeira.png"></a>
-                            <a href="#abrirModal"><img src = "/img/adicionar.png"></a>
-
-                            <div id="abrirModal" class="modal">
-                                <a href="#fechar" title="Fechar" class="fechar">x</a>
-                                <section class="container">
-                                    <section id="cadastrar">
-                                            <form action="/uploads" method="POST" enctype="multipart/form-data">
-                                                <div>
-                                                    <label for="album">Upload imagens: </label>
-                                                    <input type="file" name="image" id="file" placeholder="Digite o nome do álbum" required>
-                                                </div> 
-                                                <button class="btnCadastrar" type="submit">Upload</button>
-                                            </form> 
-                                        </section>   
-                                    </section>  
-                            </div></a>
-                        </td>
-                    </tr>
-                    <% }) %>
-                </table>    
-            </section>   
-        </section>  
 
         <script src="/js/script.js"></script>
 </body>
