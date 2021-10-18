@@ -33,22 +33,24 @@
         </ul>
     </nav>
 
-    <div class="eventos_all">
-       <img class="img_eventos" src='<%= eventos_img.local_imagem_titulo %>'>
+    <div class="albuns_all">
+        <div>
+            <img class="img_albuns" src='<%= eventos_img.local_imagem_titulo %>'>
+        </div>
+    <section class = "card_teste">
+        <% albuns.forEach((item, albuns) => { %>
+            <a class="card_albuns" href="/image/<%= item.id_albuns %>">
+                <img src='<%= item.album_imagem %>'>
+                <h3>
+                    <p>Evento: <%= item.nome_album %> </p>
+                    <p>Data: <%= item.data_album %></p>
+                    <p>Local: <%= item.local_album %></p>
+                    <p>Nome do autor: <%= item.nome_autor %></p>
+                </h3>
+            </a>
+     <% }) %>
+    </section>
 
-<section id="card_albuns">
-    <% albuns.forEach((item, albuns) => { %>
-        <a class= "card" href="/fotos/<%= item.id_albuns %>"">
-            <img src='<%= item.album_imagem %>'>
-            <h3>
-                <p>Evento: <%= item.nome_album %> </p>
-                <p>Data: <%= item.data_album %></p>
-                <p>Local: <%= item.local_album %></p>
-                <p>Nome do autor: <%= item.nome_autor %></p>
-            </h3>
-        </a>
-    <% }) %>
-</section>
 </div>
 <script src="/js/script.js"></script>
 </body>

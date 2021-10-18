@@ -6,9 +6,9 @@ const bodyParser = require("body-parser");
 const Sequelize = require("sequelize");
 require('dotenv').config()
 const multer = require("multer");
-app.use(express.json());
 const morgan = require('morgan');
 
+app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
@@ -17,18 +17,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const Eventos_img = require("./models/eventos");
 const Albuns_ = require("./models/albuns");
+const Image_files = require("./models/image_files")
 
-
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, "uploads/")
-  },
-  filename:function(req, file, cb) {
-    cb(null, file.originalname + Date.now() + path.extname(file.originalname));
-  }
-});
-
-const upload = multer({storage});
 
 let message = "";
 
@@ -58,7 +48,7 @@ const db = knex({
 const imageUpload = multer({
   storage: multer.diskStorage({
     destination: function (req, file, cb) {
-    cb(null, 'images/');
+    cb(null, 'image/');
     },
     filename: function (req, file, cb) {
     cb(null, new Date().valueOf() + '_' + file.originalname);
@@ -88,7 +78,9 @@ db
         res.render("deletar");
 });
 
-app.get('/image/:filename', (req, res) => {
+app.get('/image/:filename', async (req, res) => {
+  // const imagem = await Image_files.findByPk(req.params.filename);
+  const imagem = await Image_files.findAll();
     const { filename } = req.params;
     db
       .select('*')
@@ -112,9 +104,13 @@ app.get('/image/:filename', (req, res) => {
         stack: err.stack,
       }),
       );
+      res.render("fotos", {
+        imagem,
+      })
 });
 
 // ________________________________________
+
 
 
 app.get("/albuns/:id", async  (req, res) => { 
@@ -133,7 +129,7 @@ app.get("/albuns/:id", async  (req, res) => {
 
   res.render("albuns", {
     albuns,
-    eventos_img
+    eventos_img,
   });
 });
 
@@ -271,6 +267,29 @@ app.get("/fotos/:id", async  (req, res) => {
     eventos_img
   });
 });
+
+// app.get("/fotos/:id", async  (req, res) => { 
+//   const imagem_id = await Image_files.findByPk(req.params.id);
+//   const imagem = await Image_files.findAll();
+
+//   res.render("fotos", {
+//     imagem,
+//     imagem_id
+//   });
+// });
+
+//  <section id="book">
+//         <% imagem.forEach((item, image_files) => { %>
+//                 <img src='<%= item.filename %>'width="30%">
+//     </a>
+//     <% }) %> 
+
+  // <section id="book">
+  //       <% albuns.forEach((item, albuns) => { %>
+  //               <img src='<%= item.album_imagem %>'width="30%">
+  //   </a>
+  //   <% }) %>
+  //   </section>
 
 
 app.listen(port, () =>
