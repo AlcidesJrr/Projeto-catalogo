@@ -148,6 +148,7 @@ app.get("/controle", (req, res) => {
   });
 });
 
+
 app.get("/membros", async (req, res) => {
   const album = await Albuns_.findAll();
 
