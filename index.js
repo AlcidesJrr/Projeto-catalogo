@@ -64,6 +64,7 @@ db
         mimetype,
         size,
         })
+
   .into('image_files')
   .then(() => res.json({ success: true, filename }))
   .catch(err => res
@@ -71,9 +72,13 @@ db
       success: false,
       message: 'upload failed',
       stack: err.stack,
-      })); 
+      }));
+      
+      message = "Arquivo enviado com sucesso!"
 
-        res.render("deletar");
+        res.render("rota", {
+          message,
+        });
 });
 
 app.get('/image/:filename', async (req, res) => {
@@ -105,8 +110,6 @@ app.get('/image/:filename', async (req, res) => {
         imagem,
       })
 });
-
-// ________________________________________
 
 
 app.get("/albuns/:id", async  (req, res) => { 
@@ -146,18 +149,22 @@ app.get("/controle", (req, res) => {
 });
 
 
-app.get("/membros", async (req, res) => {
+app.get("/criar", async (req, res) => {
   const album = await Albuns_.findAll();
 
-  res.render("membros", {
+  setTimeout(() => {
+    message = "";
+  }, 1000);
+
+  res.render("criar", {
     album,
+    message
   });
 });
 
 
-app.post("/membros", async (req, res) => {
+app.post("/criar", async (req, res) => {
   const album = await Albuns_.findAll();
-
   const { nome_album, nome_autor, evento_album, album_imagem, local_album, data_album } = req.body;
 
   const album_a = await Albuns_.create({
@@ -169,6 +176,8 @@ app.post("/membros", async (req, res) => {
     data_album,
   });
 
+  message = "Album criado com sucesso!";
+
   try {
     const albuns_a = await Albuns_.create({
       nome_album,
@@ -176,33 +185,16 @@ app.post("/membros", async (req, res) => {
       album_imagem
     });
 
-    res.render("membros", {
-      albuns_a,
-      album
-    });
   } catch (err) {
     console.log(err);
-
-    res.render("membros", {
-      album_a,
-      album
-    });
+    res.redirect("criar")
   }
 
 });
 
-app.get("/editar/:id", async (req, res) => {
-  const albuns = await Albuns_.findByPk(req.params.id);
-  const album = await Albuns_.findAll();
-
-  res.render("editar", {
-    albuns,
-    album
-  });
-});
-
 app.post("/editar/:id", async (req, res) => {
   const albuns = await Albuns_.findByPk(req.params.id);
+  const album = await Albuns_.findAll();
 
   const { nome_album, nome_autor, evento_album, album_imagem, local_album, data_album } = req.body;
   albuns.nome_album = nome_album,
@@ -214,9 +206,12 @@ app.post("/editar/:id", async (req, res) => {
 
   const albunsEditado = await albuns.save();
 
-  res.render("deletar", {
+  message =  "Album editado com sucesso!";
+
+  res.render("rota", {
     albuns: albunsEditado,
-    mensagemSucesso: "Filme editado com sucesso!",
+    album,
+    message
   });
 });
 
@@ -226,7 +221,10 @@ app.get("/deletar/:id", async (req, res) => {
 
   await albuns.destroy();
 
-  res.render("deletar")
+  message = "Album excluido com sucesso!";
+
+  res.render("rota");
+
 });
 
 app.get("/eventos/:id", async (req, res) => {
@@ -247,7 +245,7 @@ app.post('/controle', (req, res) => {
   let senha = req.body.senha;
   
   if (login == "book" && senha == "1234") {
-    res.redirect('/membros')
+    res.redirect('/criar')
   } else {
     message = 'Usuário ou senha inválido'
     res.redirect('/controle')

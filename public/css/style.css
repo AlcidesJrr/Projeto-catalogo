@@ -164,6 +164,21 @@ nav ul li a:hover {
 
 .index{
 padding-top: 3rem;
+margin: 0;
+}
+
+/* ------------------------------------------- */
+
+.construcao {
+  text-align: center;
+  margin: 150px 500px 250px 500px;
+  font-size: 25px;
+  color: rgb(92, 88, 88);
+  background: #d7d8dabe;
+  padding: 4rem;
+  border-radius: 1rem;
+  position: absolute;
+  
 }
 
 /* ------------------------------------------- */
@@ -392,10 +407,28 @@ section#message {
 }
 
 span#close {
-  font-size: 0.8rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: .3s;
+  padding: 0 0 0 0.8rem;
 }
+
+.message_edt_add #message {
+  position: absolute;
+  width: 15%;
+  text-align: center;
+  padding: 0.8rem;
+  background-color: rgba(182, 182, 173, 0.616);
+  color: #8a1826;
+  font-size: 0.8rem;
+  font-weight: 450;
+  border-radius: 0.3rem;
+  margin-left: 42%;
+  margin-top: 6.5%;
+  box-shadow: 0 0 1rem #c9717136;
+}
+
+/* ------------------------------------------------- */
 
 .corpo h1 {
   color: #1b62a8;
@@ -533,7 +566,13 @@ a.card:hover {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 50px;
+  margin: 70px 230px 70px 230px;
+
+}
+
+a.card {
+  margin: 0px;
+  padding: 1.3rem;
 }
 
 .card p {
@@ -553,8 +592,8 @@ a.card_albuns h3 {
 }
 
 .card img {
-  width: 12rem;
-  height: 12rem;
+  width: 11rem;
+  height: 11rem;
   border-radius: 2rem;
 }
 
@@ -950,6 +989,19 @@ section#adicionar form button:hover {
 
 @media (min-width: 461px) and (max-width: 960px) {
 
+  .construcao{
+  width: 50%;
+  padding: 2rem;
+  position: absolute;
+  margin: 0;
+  margin-top: 20%;
+  margin-left: 20%;
+  }
+}
+ 
+
+@media (min-width: 461px) and (max-width: 960px) {
+
   .table_album {
   width: 90%;
   margin: 15px;
@@ -997,9 +1049,17 @@ section#adicionar form button:hover {
 
 @media (min-width: 461px) and (max-width: 960px) {
   a.card img { 
-    width: 5rem;
-    height: 5rem;
-    margin-top: 50%; 
+    width: 8rem;
+    height: 8rem;
+    margin-top: 50%;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 461px) and (max-width: 960px) {
+  .card { 
+    margin: 0; 
+    padding: 1rem;
   }
 }
 

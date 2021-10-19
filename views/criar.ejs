@@ -34,16 +34,24 @@
                     <a href="/eventos">Eventos</a> 
                 </li>
                 <li>
-                    <a href="/membros">Cadastrar</a>
+                    <a href="/criar">Cadastrar</a>
                 </li>  
             </ul>
         </nav>
     </header>
 
+    <div class="message_edt_add">
+        <% if(message != "") {  %>
+            <section id="message">
+                <%= message %> <span id="close">&times;</span>
+            </section>
+        <% }  %>
+    </div>
+
             <div id="OpenCad" class="md">
                 <a href="#CloseCad" title="Fechar" class="CloseCad">x</a>
                 <section id="cadastrar">
-                    <form action="/membros" method="POST">
+                    <form action="/criar" method="POST">
                         <div>
                             <label for="album">Álbum: </label>
                             <input type="text" name="nome_album" id="album" placeholder="Digite o nome do álbum" required>

@@ -17,10 +17,12 @@
                 <a href="/">Book Da Galera</a>
             </h1>
         </article>
+
         <form class="form-inline">
             <input class="form-control" type="search" placeholder="Pesquisar">
             <button class="btn" type="submit">Ok</button>
         </form>
+
         <ul>
             <li>
                 <a href="/eventos">Eventos</a>  
@@ -37,7 +39,7 @@
         <div>
             <img class="img_albuns" src='<%= eventos_img.local_imagem_titulo %>'>
         </div>
-    <section class = "card_teste">
+    <section id="pesquisa" class = "card_teste">
         <% albuns.forEach((item, albuns) => { %>
             <a class="card_albuns" href="/image/<%= item.id_albuns %>">
                 <img src='<%= item.album_imagem %>'>
@@ -50,8 +52,6 @@
             </a>
      <% }) %>
     </section>
-
-</div>
 <script src="/js/script.js"></script>
 </body>
 </html>
