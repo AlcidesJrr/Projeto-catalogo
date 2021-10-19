@@ -5,12 +5,12 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const Sequelize = require("sequelize");
 require('dotenv').config()
-// const multer = require("multer");
-// const morgan = require('morgan');
+const multer = require("multer");
+const morgan = require('morgan');
 
 
-// app.use(express.json());
-// app.use(morgan('dev'));
+app.use(express.json());
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.urlencoded());
@@ -18,12 +18,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const Eventos_img = require("./models/eventos");
 const Albuns_ = require("./models/albuns");
-// const Image_files = require("./models/image_files")
+const Image_files = require("./models/image_files")
 
 let message = "";
 
-// app.get("/eventos", async (req, res) => {
-//   const eventos_img = await Eventos_img.findAll();
+app.get("/eventos", async (req, res) => {
+  const eventos_img = await Eventos_img.findAll();
 
 //   res.render("eventos", {
 //     eventos_img,
