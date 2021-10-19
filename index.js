@@ -5,12 +5,12 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const Sequelize = require("sequelize");
 require('dotenv').config()
-const multer = require("multer");
-const morgan = require('morgan');
+// const multer = require("multer");
+// const morgan = require('morgan');
 
 
-app.use(express.json());
-app.use(morgan('dev'));
+// app.use(express.json());
+// app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.urlencoded());
