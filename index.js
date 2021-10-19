@@ -22,14 +22,6 @@ const Image_files = require("./models/image_files")
 
 let message = "";
 
-app.get("/eventos", async (req, res) => {
-  const eventos_img = await Eventos_img.findAll();
-
-  res.render("eventos", {
-    eventos_img,
-  });
-});
-
 // const knex = require('knex');
 // const db = knex({
 //   client: 'postgres',
@@ -111,26 +103,33 @@ app.get("/eventos", async (req, res) => {
 //       })
 // });
 
+app.get("/eventos", async (req, res) => {
+  const eventos_img = await Eventos_img.findAll();
 
-// app.get("/albuns/:id", async  (req, res) => { 
-//   const eventos_img = await Eventos_img.findByPk(req.params.id);
+  res.render("eventos", {
+    eventos_img,
+  });
+});
 
-//   let eventos_ = ["aniversarios", "baladas", "casamentos", "churrascos", "festivais", "happyHour", "malabares","reveillons"];
+app.get("/albuns/:id", async  (req, res) => { 
+  const eventos_img = await Eventos_img.findByPk(req.params.id);
 
-//   let alb_db = parseInt(req.params.id)
-//   alb_db--
+  let eventos_ = ["aniversarios", "baladas", "casamentos", "churrascos", "festivais", "happyHour", "malabares","reveillons"];
 
-//   let albuns = await Albuns_.findAll({
-//     where: {
-//     evento_album: eventos_[alb_db]
-//     }
-//     });
+  let alb_db = parseInt(req.params.id)
+  alb_db--
 
-//   res.render("albuns", {
-//     albuns,
-//     eventos_img,
-//   });
-// });
+  let albuns = await Albuns_.findAll({
+    where: {
+    evento_album: eventos_[alb_db]
+    }
+    });
+
+  res.render("albuns", {
+    albuns,
+    eventos_img,
+  });
+});
 
 
 app.get("/", (req, res) => {
