@@ -8,6 +8,7 @@ require('dotenv').config()
 const multer = require("multer");
 const morgan = require('morgan');
 
+
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,15 +34,22 @@ app.get("/eventos", async (req, res) => {
 
 // ________________________________________
 
+// const knex = require('knex');
+// const db = knex({
+//   client: 'postgres',
+//   connection: {
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASS,
+//   database: process.env.DB_BASE,
+//   },
+//   }
+// );
+
 const knex = require('knex');
 const db = knex({
   client: 'postgres',
-  connection: {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_BASE,
-  },
+  connection: process.env.DATABASE_URL,
   }
 );
 
@@ -266,30 +274,6 @@ app.get("/fotos/:id", async  (req, res) => {
     eventos_img
   });
 });
-
-// app.get("/fotos/:id", async  (req, res) => { 
-//   const imagem_id = await Image_files.findByPk(req.params.id);
-//   const imagem = await Image_files.findAll();
-
-//   res.render("fotos", {
-//     imagem,
-//     imagem_id
-//   });
-// });
-
-//  <section id="book">
-//         <% imagem.forEach((item, image_files) => { %>
-//                 <img src='<%= item.filename %>'width="30%">
-//     </a>
-//     <% }) %> 
-
-  // <section id="book">
-  //       <% albuns.forEach((item, albuns) => { %>
-  //               <img src='<%= item.album_imagem %>'width="30%">
-  //   </a>
-  //   <% }) %>
-  //   </section>
-
 
 app.listen(port, () =>
 console.log(`Servidor rodando em http://localhost:${port}`)

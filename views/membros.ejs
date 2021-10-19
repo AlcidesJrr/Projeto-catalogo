@@ -115,7 +115,6 @@
                         <td><%= item.data_album %></td>
                         <td>
                             <a href="#edit_modal/<%= item.id_albuns %>"><img src="/img/editar.png"></a>
-                            <a href="/deletar/<%= item.id_albuns %>"><img src="/img/lixeira.png"></a>
                             <a href="#abrirModal"><img src = "/img/adicionar.png"></a>
                             <a>   
                             <div id="abrirModal" class="modal">
@@ -179,10 +178,11 @@
                                        <section> 
                             </div>
                             </a>
-                
+                            <a href="/deletar/<%= item.id_albuns %>"><img src="/img/lixeira.png"></a>
                         </td></a>
                     </tr>
                     <% }) %>
+                    
                 </table>     
         </section>  
         <a>
