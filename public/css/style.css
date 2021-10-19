@@ -170,15 +170,8 @@ margin: 0;
 /* ------------------------------------------- */
 
 .construcao {
+  margin:-8% 0 50% 0 ;
   text-align: center;
-  margin: 150px 500px 250px 500px;
-  font-size: 25px;
-  color: rgb(92, 88, 88);
-  background: #d7d8dabe;
-  padding: 4rem;
-  border-radius: 1rem;
-  position: absolute;
-  
 }
 
 /* ------------------------------------------- */
@@ -985,6 +978,28 @@ section#adicionar form button:hover {
     width: 20%;
     margin-left: 128%;
   }
+}
+
+@media (min-width: 461px) and (max-width: 960px) {
+
+  .construcao {
+    margin:-8% 0 50% 0 ;
+    text-align: center;
+  }
+}  
+
+@media (min-width: 461px) and (max-width: 960px) {
+
+  .img-site_const {
+    width: 200%;
+    margin-left: -130px;
+    margin-top: -130px;
+  }
+}  
+
+.construcao {
+  margin:-8% 0 50% 0 ;
+  text-align: center;
 }
 
 @media (min-width: 461px) and (max-width: 960px) {
