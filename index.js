@@ -5,7 +5,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const Sequelize = require("sequelize");
 require('dotenv').config()
-const multer = require("multer");
+// const multer = require("multer");
 // const morgan = require('morgan');
 
 
