@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const Sequelize = require("sequelize");
 require('dotenv').config()
 const multer = require("multer");
-const morgan = require('morgan');
+// const morgan = require('morgan');
 
 
 // app.use(express.json());
