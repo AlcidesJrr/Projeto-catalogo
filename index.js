@@ -20,7 +20,6 @@ const Eventos_img = require("./models/eventos");
 const Albuns_ = require("./models/albuns");
 const Image_files = require("./models/image_files")
 
-
 let message = "";
 
 app.get("/eventos", async (req, res) => {
@@ -32,25 +31,18 @@ app.get("/eventos", async (req, res) => {
 });
 
 
-// ________________________________________
-
-// const knex = require('knex');
-// const db = knex({
-//   client: 'postgres',
-//   connection: {
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASS,
-//   database: process.env.DB_BASE,
-//   },
-//   }
-// );
-
 const knex = require('knex');
 const db = knex({
   client: 'postgres',
   connection: process.env.DATABASE_URL,
+  dialectOptions: {         
+    ssl: {             
+      require: true,             
+      rejectUnauthorized: false         
+    }     
   }
+  }
+  
 );
 
 const imageUpload = multer({
@@ -87,7 +79,6 @@ db
 });
 
 app.get('/image/:filename', async (req, res) => {
-  // const imagem = await Image_files.findByPk(req.params.filename);
   const imagem = await Image_files.findAll();
     const { filename } = req.params;
     db
