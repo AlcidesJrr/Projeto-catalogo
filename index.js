@@ -227,14 +227,13 @@ app.get("/", (req, res) => {
 
 // });
 
-// app.get("/eventos/:id", async (req, res) => {
-//   const album = await Albuns_.findAll();
+app.get("/eventos/:id", async (req, res) => {
+  const album = await Albuns_.findAll();
 
-//   res.render("eventos", {
-//     album
-//   });
-
-// });
+  res.render("eventos", {
+    album
+  });
+});
 
 // app.get("/sobre", (req, res) => {
 //   res.render("sobre");
