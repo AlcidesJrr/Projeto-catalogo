@@ -111,6 +111,14 @@ app.get("/eventos", async (req, res) => {
   });
 });
 
+app.get("/eventos/:id", async (req, res) => {
+  const album = await Albuns_.findAll();
+
+  res.render("eventos", {
+    album
+  });
+});
+
 app.get("/albuns/:id", async  (req, res) => { 
   const eventos_img = await Eventos_img.findByPk(req.params.id);
 
@@ -137,128 +145,121 @@ app.get("/", (req, res) => {
 });
 
 
-// app.get("/controle", (req, res) => {
-//   setTimeout(() => {
-//     message = "";
-//   }, 1000);
+app.get("/controle", (req, res) => {
+  setTimeout(() => {
+    message = "";
+  }, 1000);
 
-//   res.render("controle", {
-//     message
-//   });
-// });
-
-
-// app.get("/criar", async (req, res) => {
-//   const album = await Albuns_.findAll();
-
-//   setTimeout(() => {
-//     message = "";
-//   }, 1000);
-
-//   res.render("criar", {
-//     album,
-//     message
-//   });
-// });
-
-
-// app.post("/criar", async (req, res) => {
-//   const album = await Albuns_.findAll();
-//   const { nome_album, nome_autor, evento_album, album_imagem, local_album, data_album } = req.body;
-
-//   const album_a = await Albuns_.create({
-//     nome_album,
-//     nome_autor,
-//     evento_album,
-//     album_imagem,
-//     local_album,
-//     data_album,
-//   });
-
-//   message = "Album criado com sucesso!";
-
-//   try {
-//     const albuns_a = await Albuns_.create({
-//       nome_album,
-//       nome_autor,
-//       album_imagem
-//     });
-
-//   } catch (err) {
-//     console.log(err);
-//     res.redirect("criar")
-//   }
-
-// });
-
-// app.post("/editar/:id", async (req, res) => {
-//   const albuns = await Albuns_.findByPk(req.params.id);
-//   const album = await Albuns_.findAll();
-
-//   const { nome_album, nome_autor, evento_album, album_imagem, local_album, data_album } = req.body;
-//   albuns.nome_album = nome_album,
-//   albuns.nome_autor = nome_autor,
-//   albuns.evento_album = evento_album,
-//   albuns.album_imagem = album_imagem,
-//   albuns.local_album = local_album,
-//   albuns.data_album = data_album
-
-//   const albunsEditado = await albuns.save();
-
-//   message =  "Album editado com sucesso!";
-
-//   res.render("rota", {
-//     albuns: albunsEditado,
-//     album,
-//     message
-//   });
-// });
-
-// app.get("/deletar/:id", async (req, res) => {
-//   const albuns = await Albuns_.findByPk(req.params.id);
-//   const album = await Albuns_.findAll();
-
-//   await albuns.destroy();
-
-//   message = "Album excluido com sucesso!";
-
-//   res.render("rota");
-
-// });
-
-app.get("/eventos/:id", async (req, res) => {
-  const album = await Albuns_.findAll();
-
-  res.render("eventos", {
-    album
+  res.render("controle", {
+    message
   });
 });
 
-// app.get("/sobre", (req, res) => {
-//   res.render("sobre");
-// });
 
-// app.post('/controle', (req, res) => {
-//   let login = req.body.login;
-//   let senha = req.body.senha;
+app.get("/criar", async (req, res) => {
+  const album = await Albuns_.findAll();
+
+  setTimeout(() => {
+    message = "";
+  }, 1000);
+
+  res.render("criar", {
+    album,
+    message
+  });
+});
+
+
+app.post("/criar", async (req, res) => {
+  const album = await Albuns_.findAll();
+  const { nome_album, nome_autor, evento_album, album_imagem, local_album, data_album } = req.body;
+
+  const album_a = await Albuns_.create({
+    nome_album,
+    nome_autor,
+    evento_album,
+    album_imagem,
+    local_album,
+    data_album,
+  });
+
+  message = "Album criado com sucesso!";
+
+  try {
+    const albuns_a = await Albuns_.create({
+      nome_album,
+      nome_autor,
+      album_imagem
+    });
+
+  } catch (err) {
+    console.log(err);
+    res.redirect("criar")
+  }
+
+});
+
+app.post("/editar/:id", async (req, res) => {
+  const albuns = await Albuns_.findByPk(req.params.id);
+  const album = await Albuns_.findAll();
+
+  const { nome_album, nome_autor, evento_album, album_imagem, local_album, data_album } = req.body;
+  albuns.nome_album = nome_album,
+  albuns.nome_autor = nome_autor,
+  albuns.evento_album = evento_album,
+  albuns.album_imagem = album_imagem,
+  albuns.local_album = local_album,
+  albuns.data_album = data_album
+
+  const albunsEditado = await albuns.save();
+
+  message =  "Album editado com sucesso!";
+
+  res.render("rota", {
+    albuns: albunsEditado,
+    album,
+    message
+  });
+});
+
+app.get("/deletar/:id", async (req, res) => {
+  const albuns = await Albuns_.findByPk(req.params.id);
+  const album = await Albuns_.findAll();
+
+  await albuns.destroy();
+
+  message = "Album excluido com sucesso!";
+
+  res.render("rota");
+
+});
+
+
+app.get("/sobre", (req, res) => {
+  res.render("sobre");
+});
+
+app.post('/controle', (req, res) => {
+  let login = req.body.login;
+  let senha = req.body.senha;
   
-//   if (login == "book" && senha == "1234") {
-//     res.redirect('/criar')
-//   } else {
-//     message = 'Usuário ou senha inválido'
-//     res.redirect('/controle')
-//   };
-// });
+  if (login == "book" && senha == "1234") {
+    res.redirect('/criar')
+  } else {
+    message = 'Usuário ou senha inválido'
+    res.redirect('/controle')
+  };
+});
 
-// app.get("/fotos/:id", async  (req, res) => { 
-//   const albuns = await Albuns_.findAll();
-//   const eventos_img = await Eventos_img.findByPk(req.params.id);
+app.get("/fotos/:id", async  (req, res) => { 
+  const albuns = await Albuns_.findAll();
+  const eventos_img = await Eventos_img.findByPk(req.params.id);
 
-//   res.render("fotos", {
-//     albuns,
-//     eventos_img
-//   });
-// });
+  res.render("fotos", {
+    albuns,
+    eventos_img
+  });
+});
 
 app.listen(port, () =>
 console.log(`Servidor rodando em http://localhost:${port}`)
