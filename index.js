@@ -46,32 +46,32 @@ const db = knex({
 //   }), 
 // });
 
-// app.post('/image', imageUpload.single('image'), (req, res) => {
-//     const { filename, mimetype, size } = req.file;
-//     const filepath = req.file.path;
-// db
-//   .insert({
-//         filename,
-//         filepath,
-//         mimetype,
-//         size,
-//         })
+app.post('/image', imageUpload.single('image'), (req, res) => {
+    const { filename, mimetype, size } = req.file;
+    const filepath = req.file.path;
+db
+  .insert({
+        filename,
+        filepath,
+        mimetype,
+        size,
+        })
 
-//   .into('image_files')
-//   .then(() => res.json({ success: true, filename }))
-//   .catch(err => res
-//   .json({ 
-//       success: false,
-//       message: 'upload failed',
-//       stack: err.stack,
-//       }));
+  .into('image_files')
+  .then(() => res.json({ success: true, filename }))
+  .catch(err => res
+  .json({ 
+      success: false,
+      message: 'upload failed',
+      stack: err.stack,
+      }));
       
-//       message = "Arquivo enviado com sucesso!"
+      message = "Arquivo enviado com sucesso!"
 
-//         res.render("rota", {
-//           message,
-//         });
-// });
+        res.render("rota", {
+          message,
+        });
+});
 
 app.get('/image/:filename', async (req, res) => {
   const imagem = await Image_files.findAll();
