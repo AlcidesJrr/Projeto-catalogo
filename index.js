@@ -73,35 +73,35 @@ const db = knex({
 //         });
 // });
 
-// app.get('/image/:filename', async (req, res) => {
-//   const imagem = await Image_files.findAll();
-//     const { filename } = req.params;
-//     db
-//       .select('*')
-//       .from('image_files')
-//       .where({ filename })
-//       .then(images => {
-//       if (images[0]) {
-//         const dirname = path.resolve();
-//         const fullfilepath = path.join(dirname, images[0].filepath);
-//         return res
-//       .type(images[0].mimetype)
-//       .sendFile(fullfilepath);
-//       }
-//       return Promise.reject(new Error('Image does not exist'));
-//       })
-//       .catch(err => res
-//       .status(404)
-//       .json({
-//         success: false, 
-//         message: 'not found', 
-//         stack: err.stack,
-//       }),
-//       );
-//       res.render("fotos", {
-//         imagem,
-//       })
-// });
+app.get('/image/:filename', async (req, res) => {
+  const imagem = await Image_files.findAll();
+    const { filename } = req.params;
+    db
+      .select('*')
+      .from('image_files')
+      .where({ filename })
+      .then(images => {
+      if (images[0]) {
+        const dirname = path.resolve();
+        const fullfilepath = path.join(dirname, images[0].filepath);
+        return res
+      .type(images[0].mimetype)
+      .sendFile(fullfilepath);
+      }
+      return Promise.reject(new Error('Image does not exist'));
+      })
+      .catch(err => res
+      .status(404)
+      .json({
+        success: false, 
+        message: 'not found', 
+        stack: err.stack,
+      }),
+      );
+      res.render("fotos", {
+        imagem,
+      })
+});
 
 app.get("/eventos", async (req, res) => {
   const eventos_img = await Eventos_img.findAll();
