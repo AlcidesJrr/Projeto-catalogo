@@ -25,10 +25,10 @@ let message = "";
 app.get("/eventos", async (req, res) => {
   const eventos_img = await Eventos_img.findAll();
 
-//   res.render("eventos", {
-//     eventos_img,
-//   });
-// });
+  res.render("eventos", {
+    eventos_img,
+  });
+});
 
 // const knex = require('knex');
 // const db = knex({
