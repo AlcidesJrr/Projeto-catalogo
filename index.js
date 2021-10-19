@@ -9,7 +9,7 @@ const multer = require("multer");
 const morgan = require('morgan');
 
 
-app.use(express.json());
+// app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
