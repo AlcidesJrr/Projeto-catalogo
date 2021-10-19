@@ -5,7 +5,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const Sequelize = require("sequelize");
 require('dotenv').config()
-// const multer = require("multer");
+const multer = require("multer");
 const morgan = require('morgan');
 
 
@@ -35,16 +35,16 @@ const db = knex({
   }  
 );
 
-// const imageUpload = multer({
-//   storage: multer.diskStorage({
-//     destination: function (req, file, cb) {
-//     cb(null, 'image/');
-//     },
-//     filename: function (req, file, cb) {
-//     cb(null, new Date().valueOf() + '_' + file.originalname);
-//     }
-//   }), 
-// });
+const imageUpload = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+    cb(null, 'image/');
+    },
+    filename: function (req, file, cb) {
+    cb(null, new Date().valueOf() + '_' + file.originalname);
+    }
+  }), 
+});
 
 app.post('/image', imageUpload.single('image'), (req, res) => {
     const { filename, mimetype, size } = req.file;
