@@ -30,7 +30,6 @@ app.get("/eventos", async (req, res) => {
   });
 });
 
-
 const knex = require('knex');
 const db = knex({
   client: 'postgres',
@@ -41,8 +40,7 @@ const db = knex({
       rejectUnauthorized: false         
     }     
   }
-  }
-  
+  }  
 );
 
 const imageUpload = multer({
