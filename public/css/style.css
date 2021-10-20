@@ -31,12 +31,17 @@ body {
   list-style: none;
 }
 
+.sub-menu ul ul li a{
+  font-size: 1.03rem;
+}
+
 .sub-menu ul li:hover > ul {
   display: block;
 }
 
 .sub-menu ul ul li a:hover {
   color: rgba(209, 83, 74, 0.658);
+  font-size: 1.3rem;
 }
 
 .form-inline {
@@ -1196,9 +1201,22 @@ section#adicionar form button:hover {
 }
 
 @media (min-width: 1500px) and (max-width: 1920px) {
+  .message_edt_add {
+    padding-bottom:  2%;
+  }
+  }
+
+@media (min-width: 1500px) and (max-width: 1920px) {
   .card { 
     margin: 1% 15% 0 15%; 
     padding: 0rem;
+  }
+}
+
+@media (min-width: 1500px) and (max-width: 1920px) {
+  .closeCad { 
+    margin-left: 60% 
+    
   }
 }
 
