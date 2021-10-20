@@ -1,4 +1,4 @@
-# Big Game Survey 
+# Book da Galera
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/AlcidesJrr/Projeto-catalogo/blob/main/LICENSE) 
 
 # Sobre o projeto
