@@ -3,7 +3,7 @@
 
 # Sobre o projeto
 
-https://book-da-galera.herokuapp.com/eventos
+git add
 
 Book da Galera é uma aplicação full stack web construída para entrega de projeto final do módulo II do curso de programação dirigido pela instituição Blue Edtech, (https://blueedtech.com.br "Site da Blue Edtech").
 
