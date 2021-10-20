@@ -10,7 +10,7 @@ Book da Galera é uma aplicação full stack web construída para entrega de pro
 A aplicação consiste em um ambiente de compartilhamento de fotos entre um grupo de amigos, onde é realizado a coleta de dados dos albuns e das imagens no app web e também apresenta uma tabela com todos os evntos listados.
 
 ## Layout web
-![Web 1](https://github.com/AlcidesJrr/assets/blob/main/image.png)
+![Web 1](https://github.com/AlcidesJrr/assets/blob/main/image.PNG)
 
 ## Modelo conceitual
 ![Modelo Conceitual](https://github.com/AlcidesJrr/assets/blob/main/book.PNG)
