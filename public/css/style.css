@@ -140,7 +140,7 @@ nav ul li a {
   font-weight: bold;
   font-size: 1.2rem;
   transition: 0.5s;
-  padding: 1rem;
+  padding: 1.5rem;
 }
   
 nav ul li a:hover {
@@ -159,8 +159,8 @@ nav ul li a:hover {
   border-right: 5px solid transparent;
   border-top: 5px solid rgba(95, 75, 74, 0.466);
 }
-/* 
------------------------------------------ */
+
+/* ----------------------------------------- */
 
 .index{
 padding-top: 3rem;
