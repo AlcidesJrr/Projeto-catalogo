@@ -639,6 +639,11 @@ div.card img:hover {
 
 /* ------------------------------------- */
 
+table {
+  height: 200px;
+  overflow: scroll;
+ 
+}
 
 .table_album {
   background-color: #fff;
@@ -651,7 +656,6 @@ div.card img:hover {
   margin: auto;
 
 }
-
 
 table td {
   width: 20%;
@@ -1138,6 +1142,14 @@ section#adicionar form button:hover {
 
 @media (min-width: 461px) and (max-width: 960px) {
 
+  .nav_card {
+    margin-left: 102%;
+  }
+}
+
+
+@media (min-width: 461px) and (max-width: 960px) {
+
   nav article h1 a, nav ul li a {
   font-size: 3vw;
   }
@@ -1195,6 +1207,14 @@ section#adicionar form button:hover {
     width: 20%;
     margin-top: -8rem;
     margin-bottom: -8rem;
+  
+  }
+}
+
+@media (min-width: 1500px) and (max-width: 1920px) {
+  .img_sobre{
+    margin-top: -9rem;
+    width: 30%;
   
   }
 }
